@@ -18,17 +18,8 @@ class MainActivity : AppCompatActivity() {
         setListeners()
     }
 
-    private fun makeColored(view: View) = with(binding) {
-        when (view.id) {
-            // English: Boxes using Color class colors for the background.
-            // Spanish: Las cajas usan los colores de la clase Color para el fondo.
-            boxOneText.id -> view.setBackgroundColor(randomColor())
-            boxTwoText.id -> view.setBackgroundColor(randomColor())
-            boxThreeText.id -> view.setBackgroundColor(randomColor())
-            boxFourText.id -> view.setBackgroundColor(randomColor())
-            boxFiveText.id -> view.setBackgroundColor(randomColor())
-            else -> view.setBackgroundColor(randomColor())
-        }
+    private fun makeColored(view: View) {
+            view.setBackgroundColor(randomColor())
     }
 
     private fun setListeners() = with(binding) {
