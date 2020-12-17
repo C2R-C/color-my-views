@@ -5,40 +5,36 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.c2r.colormyviews.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         setListeners()
     }
 
-    private fun makeColored(view: View) {
+    private fun makeColored(view: View) = with(binding) {
         when (view.id) {
             // English: Boxes using Color class colors for the background.
             // Spanish: Las cajas usan los colores de la clase Color para el fondo.
-            R.id.box_one_text -> view.setBackgroundColor(randomColor())
-            R.id.box_two_text -> view.setBackgroundColor(randomColor())
-            R.id.box_three_text -> view.setBackgroundColor(randomColor())
-            R.id.box_four_text -> view.setBackgroundColor(randomColor())
-            R.id.box_five_text -> view.setBackgroundColor(randomColor())
+            boxOneText.id -> view.setBackgroundColor(randomColor())
+            boxTwoText.id -> view.setBackgroundColor(randomColor())
+            boxThreeText.id -> view.setBackgroundColor(randomColor())
+            boxFourText.id -> view.setBackgroundColor(randomColor())
+            boxFiveText.id -> view.setBackgroundColor(randomColor())
             else -> view.setBackgroundColor(randomColor())
         }
     }
 
-    private fun setListeners() {
-
-        val boxOneText = findViewById<TextView>(R.id.box_one_text)
-        val boxTwoText = findViewById<TextView>(R.id.box_two_text)
-        val boxThreeText = findViewById<TextView>(R.id.box_three_text)
-        val boxFourText = findViewById<TextView>(R.id.box_four_text)
-        val boxFiveText = findViewById<TextView>(R.id.box_five_text)
-        val constLayout = findViewById<View>(R.id.constraint_layout)
+    private fun setListeners() = with(binding) {
 
         val clickableViews: List<View> =
-            listOf(boxOneText, boxTwoText, boxThreeText, boxFourText, boxFiveText, constLayout)
+            listOf(boxOneText, boxTwoText, boxThreeText, boxFourText, boxFiveText, constraintLayout)
 
         for (click in clickableViews) {
             click.setOnClickListener { makeColored(it) }
