@@ -4,7 +4,9 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import java.text.BreakIterator
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,16 +18,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun makeColored(view: View) {
-        when (view.id) {
-            // English: Boxes using Color class colors for the background.
-            // Spanish: Las cajas usan los colores de la clase Color para el fondo.
-            R.id.box_one_text -> view.setBackgroundColor(randomColor())
-            R.id.box_two_text -> view.setBackgroundColor(randomColor())
-            R.id.box_three_text -> view.setBackgroundColor(randomColor())
-            R.id.box_four_text -> view.setBackgroundColor(randomColor())
-            R.id.box_five_text -> view.setBackgroundColor(randomColor())
-            else -> view.setBackgroundColor(randomColor())
-        }
+          if (view.id != R.id.constraint_layout) {
+            when (view.id) {
+                // English: Boxes using Color class colors for the background.
+                // Span|ish: Las cajas usan los colores de la clase Color para el fondo.
+                R.id.box_one_text -> view.setBackgroundResource(R.drawable.cake)
+                R.id.box_two_text -> view.setBackgroundResource(R.drawable.clock)
+                R.id.box_three_text -> view.setBackgroundResource(R.drawable.driver)
+                R.id.box_four_text -> view.setBackgroundResource(R.drawable.train)
+                R.id.box_five_text -> view.setBackgroundResource(R.drawable.desktop)
+                else -> Toast.makeText(this, "Oprime en una figura", Toast.LENGTH_SHORT).show()
+            }
+        } else view.setBackgroundColor(randomColor())
     }
 
     private fun setListeners() {
@@ -46,7 +50,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun randomColor(): Int {
-        val item = (1..10).random()
+        val item = (1..9).random()
 
         val color = when (item) {
             1 -> Color.DKGRAY
@@ -56,9 +60,8 @@ class MainActivity : AppCompatActivity() {
             5 -> Color.BLUE
             6 -> Color.BLACK
             7 -> Color.GREEN
-            8 -> Color.RED
-            9 -> Color.YELLOW
-            10 -> Color.GRAY
+            8 -> Color.YELLOW
+            9 -> Color.GRAY
             else -> Color.WHITE
         }
         return color
