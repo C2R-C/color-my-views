@@ -20,21 +20,21 @@ class MainActivity : AppCompatActivity() {
     private fun makeColored(view: View) {
 
             when (view.id) {
-                R.id.box_one_text -> view.setBackgroundColor(randomColor())
-                R.id.box_two_text -> view.setBackgroundColor(randomColor())
-                R.id.box_three_text -> view.setBackgroundColor(randomColor())
-                R.id.box_four_text -> view.setBackgroundColor(randomColor())
-                R.id.box_five_text -> view.setBackgroundColor(randomColor())
-                R.id.box_six_text -> view.setBackgroundColor(randomColor())
-                R.id.box_seven_text -> view.setBackgroundColor(randomColor())
-                R.id.box_eight_text -> view.setBackgroundColor(randomColor())
-                R.id.box_nine_text -> view.setBackgroundColor(randomColor())
-                R.id.box_ten_text -> view.setBackgroundColor(randomColor())
-                R.id.box_eleven_text -> view.setBackgroundColor(randomColor())
-                R.id.box_twelve_text -> view.setBackgroundColor(randomColor())
-                R.id.box_threeten_text -> view.setBackgroundColor(randomColor())
-                R.id.box_fourten_text -> view.setBackgroundColor(randomColor())
-                R.id.constraint_layout -> view.setBackgroundColor(randomColor())
+                R.id.box_one_text -> changeAllColor()
+                R.id.box_two_text -> changeAllColor()
+                R.id.box_three_text -> changeAllColor()
+                R.id.box_four_text -> changeAllColor()
+                R.id.box_five_text -> changeAllColor()
+                R.id.box_six_text -> changeAllColor()
+                R.id.box_seven_text -> changeAllColor()
+                R.id.box_eight_text -> changeAllColor()
+                R.id.box_nine_text -> changeAllColor()
+                R.id.box_ten_text -> changeAllColor()
+                R.id.box_eleven_text -> changeAllColor()
+                R.id.box_twelve_text -> changeAllColor()
+                R.id.box_threeten_text -> changeAllColor()
+                R.id.box_fourten_text -> changeAllColor()
+                R.id.constraint_layout -> changeAllColor()
                 else -> Toast.makeText(this, "Oprime en una figura", Toast.LENGTH_SHORT).show()
             }
 
@@ -89,5 +89,39 @@ class MainActivity : AppCompatActivity() {
             else -> Color.WHITE
         }
         return color
+    }
+
+    private fun changeAllColor() {
+        val boxOneText = findViewById<TextView>(R.id.box_one_text)
+        val boxTwoText = findViewById<TextView>(R.id.box_two_text)
+        val boxThreeText = findViewById<TextView>(R.id.box_three_text)
+        val boxFourText = findViewById<TextView>(R.id.box_four_text)
+        val boxFiveText = findViewById<TextView>(R.id.box_five_text)
+        val boxSixText = findViewById<TextView>(R.id.box_six_text)
+        val boxSevenText = findViewById<TextView>(R.id.box_seven_text)
+        val boxEightText = findViewById<TextView>(R.id.box_eight_text)
+        val boxNineText = findViewById<TextView>(R.id.box_nine_text)
+        val boxTenText = findViewById<TextView>(R.id.box_ten_text)
+        val boxElevenText = findViewById<TextView>(R.id.box_eleven_text)
+        val boxTwelveText = findViewById<TextView>(R.id.box_twelve_text)
+        val boxThreetenText = findViewById<TextView>(R.id.box_threeten_text)
+        val boxFourtenText = findViewById<TextView>(R.id.box_fourten_text)
+        val constLayout = findViewById<View>(R.id.constraint_layout)
+
+        boxOneText.setBackgroundColor(randomColor())
+        boxTwoText.setBackgroundColor(randomColor())
+        boxThreeText.setBackgroundColor(randomColor())
+        boxFourText.setBackgroundColor(randomColor())
+        boxFiveText.setBackgroundColor(randomColor())
+        boxSixText.setBackgroundColor(randomColor())
+        boxSevenText.setBackgroundColor(randomColor())
+        boxEightText.setBackgroundColor(randomColor())
+        boxNineText.setBackgroundColor(randomColor())
+        boxTenText.setBackgroundColor(randomColor())
+        boxElevenText.setBackgroundColor(randomColor())
+        boxTwelveText.setBackgroundColor(randomColor())
+        boxThreetenText.setBackgroundColor(randomColor())
+        boxFourtenText.setBackgroundColor(randomColor())
+        constLayout.setBackgroundColor(randomColor())
     }
 }
