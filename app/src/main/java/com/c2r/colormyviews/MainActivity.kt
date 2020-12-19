@@ -18,17 +18,37 @@ class MainActivity : AppCompatActivity() {
         setListeners()
     }
 
-    private fun makeColored(view: View) {
-            view.setBackgroundColor(randomColor())
+    private fun makeColored() = with(binding) {
+        boxOneText.setBackgroundColor(randomColor())
+        boxTwoText.setBackgroundColor(randomColor())
+        boxThreeText.setBackgroundColor(randomColor())
+        boxFourText.setBackgroundColor(randomColor())
+        boxFiveText.setBackgroundColor(randomColor())
+        boxSixText.setBackgroundColor(randomColor())
+        boxSevenText.setBackgroundColor(randomColor())
+        boxEightText.setBackgroundColor(randomColor())
+        boxNineText.setBackgroundColor(randomColor())
+        boxTenText.setBackgroundColor(randomColor())
+        boxElevenText.setBackgroundColor(randomColor())
+        boxTwelveText.setBackgroundColor(randomColor())
+        boxThreetenText.setBackgroundColor(randomColor())
+        boxFourtenText.setBackgroundColor(randomColor())
+        constraintLayout.setBackgroundColor(randomColor())
     }
 
     private fun setListeners() = with(binding) {
 
         val clickableViews: List<View> =
-            listOf(boxOneText, boxTwoText, boxThreeText, boxFourText, boxFiveText, constraintLayout)
+            listOf(boxOneText, boxTwoText,
+                boxThreeText, boxFourText,
+                boxFiveText, boxSixText,
+                boxSevenText, boxEightText,
+                boxNineText, boxTenText,
+                boxElevenText, boxTwelveText,
+                boxThreetenText, boxFourtenText, constraintLayout)
 
         for (click in clickableViews) {
-            click.setOnClickListener { makeColored(it) }
+            click.setOnClickListener { makeColored() }
         }
     }
 
@@ -50,4 +70,5 @@ class MainActivity : AppCompatActivity() {
         }
         return color
     }
+
 }
