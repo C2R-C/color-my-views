@@ -3,10 +3,10 @@ package com.c2r.colormyviews
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import java.text.BreakIterator
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun makeColored(view: View) {
-          if (view.id != R.id.constraint_layout) {
+
             when (view.id) {
                 // English: Boxes using Color class colors for the background.
                 // Span|ish: Las cajas usan los colores de la clase Color para el fondo.
@@ -27,9 +27,13 @@ class MainActivity : AppCompatActivity() {
                 R.id.box_three_text -> view.setBackgroundResource(R.drawable.driver)
                 R.id.box_four_text -> view.setBackgroundResource(R.drawable.train)
                 R.id.box_five_text -> view.setBackgroundResource(R.drawable.desktop)
+                R.id.constraint_layout -> view.setBackgroundColor(randomColor())
+                R.id.red_button -> view.setBackgroundColor(randomColor())
+                R.id.yellow_button -> view.setBackgroundColor(randomColor())
+                R.id.green_button -> view.setBackgroundColor(randomColor())
                 else -> Toast.makeText(this, "Oprime en una figura", Toast.LENGTH_SHORT).show()
             }
-        } else view.setBackgroundColor(randomColor())
+
     }
 
     private fun setListeners() {
@@ -40,9 +44,12 @@ class MainActivity : AppCompatActivity() {
         val boxFourText = findViewById<TextView>(R.id.box_four_text)
         val boxFiveText = findViewById<TextView>(R.id.box_five_text)
         val constLayout = findViewById<View>(R.id.constraint_layout)
+        val redButton = findViewById<Button>(R.id.red_button)
+        val yellowButton = findViewById<Button>(R.id.yellow_button)
+        val greenButton = findViewById<Button>(R.id.green_button)
 
         val clickableViews: List<View> =
-            listOf(boxOneText, boxTwoText, boxThreeText, boxFourText, boxFiveText, constLayout)
+            listOf(boxOneText, boxTwoText, boxThreeText, boxFourText, boxFiveText, constLayout, redButton, yellowButton, greenButton)
 
         for (click in clickableViews) {
             click.setOnClickListener { makeColored(it) }
