@@ -19,3 +19,14 @@ Así mismo, agregué un `if()` en la función `makeColored` para que al presiona
 Los invito a revisar el cambio al MainActivity
 ___
 
+### Desafío de codificación: 2.3
+
+Eliminar el texto y los botones de la aplicación y llenar todo el diseño con cuadros de color (vistas `TextView`). la aplicación debe alternar o cambiar los colores cuando el usuario toca la pantalla.
+
+Para este desafío se hizo lo siguiente:
+-Eliminé todos los botones y sus referencias
+- Agregué 9 `textview`
+- Quité los textos de los `textview`
+- Asigné a cada `textview` un escuchador de click para que cambien el color.
+
+Para el próximo commit, el desafío será hacer que cuando se toque cualquier parte de la pantalla cambien de color todos los `textview` y la vista root
